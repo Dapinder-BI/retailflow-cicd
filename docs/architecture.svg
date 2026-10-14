@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="790" viewBox="0 0 1200 790" role="img" aria-labelledby="title desc">
+<title id="title">RetailFlow architecture</title>
+<desc id="desc">GitHub pull request and CI checks feed main branch CD deployment. Databricks has three isolated catalogs, each processing bronze customer and order data into silver tables and a gold summary.</desc>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#60738c"/></marker><style>text{font-family:Arial,Helvetica,sans-serif;fill:#14263e}.title{font-size:30px;font-weight:bold}.subtitle{font-size:15px;fill:#50647d}.section{font-size:19px;font-weight:bold}.boxTitle{font-size:17px;font-weight:bold}.boxSub{font-size:13px;fill:#52627a}.card{fill:white;stroke:#cbd7e5;stroke-width:1.5}.flow{fill:none;stroke:#60738c;stroke-width:2.5;marker-end:url(#arrow)}.dash{stroke-dasharray:7 7}</style></defs>
+<rect width="1200" height="790" fill="#f5f8fc"/>
+<text x="45" y="53" class="title">RetailFlow · Data Engineering CI/CD</text><text x="45" y="80" class="subtitle">One Databricks Free Edition workspace · Three Unity Catalog environments</text>
+<rect x="38" y="111" width="1124" height="202" rx="16" fill="#e9f1ff" stroke="#c4d8f6"/>
+<text x="58" y="144" class="section">GITHUB · VERSION CONTROL &amp; AUTOMATION</text>
+<rect x="65" y="176" width="193" height="87" rx="12" class="card"/><text x="161" y="211" text-anchor="middle" class="boxTitle">Feature branch</text><text x="161" y="235" text-anchor="middle" class="boxSub">Code changes</text>
+<path d="M258 220 H295" class="flow"/>
+<rect x="297" y="176" width="195" height="87" rx="12" class="card"/><text x="395" y="211" text-anchor="middle" class="boxTitle">Pull request</text><text x="395" y="235" text-anchor="middle" class="boxSub">Review changes</text>
+<path d="M492 220 H527" class="flow"/>
+<rect x="529" y="176" width="258" height="87" rx="12" fill="#dcf5e8" stroke="#a7d8bf"/><text x="658" y="205" text-anchor="middle" class="boxTitle">GitHub Actions CI</text><text x="658" y="228" text-anchor="middle" class="boxSub">YAML structure + Python syntax</text><text x="658" y="246" text-anchor="middle" class="boxSub">(no automated pytest yet)</text>
+<path d="M787 220 H823" class="flow"/>
+<rect x="825" y="176" width="302" height="87" rx="12" fill="#fff1d7" stroke="#e8cc8f"/><text x="976" y="205" text-anchor="middle" class="boxTitle">Merge to main → CD</text><text x="976" y="228" text-anchor="middle" class="boxSub">Validate + deploy PROD bundle</text><text x="976" y="246" text-anchor="middle" class="boxSub">Deployment ≠ pipeline run</text>
+<path d="M976 263 V354" class="flow dash"/>
+<rect x="38" y="349" width="1124" height="363" rx="16" fill="#fff" stroke="#cbd7e5"/>
+<text x="58" y="381" class="section">DATABRICKS · UNITY CATALOG + SPARK DECLARATIVE PIPELINES</text>
+<g transform="translate(59 406)"><rect width="341" height="270" rx="14" fill="#edf6ff" stroke="#b8d7f0"/><text x="18" y="31" class="section">DEV</text><text x="18" y="52" class="boxSub">retailflow_dev</text>
+<rect x="18" y="71" width="305" height="54" rx="9" class="card"/><text x="170" y="93" text-anchor="middle" class="boxTitle">Bronze · source tables</text><text x="170" y="113" text-anchor="middle" class="boxSub">dev_customers · dev_orders</text>
+<path d="M170 125 V148" class="flow"/><rect x="18" y="150" width="305" height="54" rx="9" class="card"/><text x="170" y="172" text-anchor="middle" class="boxTitle">Silver · cleaned</text><text x="170" y="192" text-anchor="middle" class="boxSub">customers_clean · orders_clean</text>
+<path d="M170 204 V225" class="flow"/><rect x="18" y="226" width="305" height="34" rx="9" fill="#d6f5e7" stroke="#a7d8bf"/><text x="170" y="249" text-anchor="middle" class="boxTitle">Gold · customer_sales_summary</text></g>
+<g transform="translate(430 406)"><rect width="341" height="270" rx="14" fill="#edf6ff" stroke="#b8d7f0"/><text x="18" y="31" class="section">TEST</text><text x="18" y="52" class="boxSub">retailflow_test</text>
+<rect x="18" y="71" width="305" height="54" rx="9" class="card"/><text x="170" y="93" text-anchor="middle" class="boxTitle">Bronze · source tables</text><text x="170" y="113" text-anchor="middle" class="boxSub">test_customers · test_orders</text>
+<path d="M170 125 V148" class="flow"/><rect x="18" y="150" width="305" height="54" rx="9" class="card"/><text x="170" y="172" text-anchor="middle" class="boxTitle">Silver · cleaned</text><text x="170" y="192" text-anchor="middle" class="boxSub">customers_clean · orders_clean</text>
+<path d="M170 204 V225" class="flow"/><rect x="18" y="226" width="305" height="34" rx="9" fill="#d6f5e7" stroke="#a7d8bf"/><text x="170" y="249" text-anchor="middle" class="boxTitle">Gold · customer_sales_summary</text></g>
+<g transform="translate(801 406)"><rect width="341" height="270" rx="14" fill="#fff6e8" stroke="#e7c991"/><text x="18" y="31" class="section">PROD</text><text x="18" y="52" class="boxSub">retailflow_prod</text>
+<rect x="18" y="71" width="305" height="54" rx="9" class="card"/><text x="170" y="93" text-anchor="middle" class="boxTitle">Bronze · source tables</text><text x="170" y="113" text-anchor="middle" class="boxSub">prod_customers · prod_orders</text>
+<path d="M170 125 V148" class="flow"/><rect x="18" y="150" width="305" height="54" rx="9" class="card"/><text x="170" y="172" text-anchor="middle" class="boxTitle">Silver · cleaned</text><text x="170" y="192" text-anchor="middle" class="boxSub">customers_clean · orders_clean</text>
+<path d="M170 204 V225" class="flow"/><rect x="18" y="226" width="305" height="34" rx="9" fill="#d6f5e7" stroke="#a7d8bf"/><text x="170" y="249" text-anchor="middle" class="boxTitle">Gold · customer_sales_summary</text></g>
+<text x="48" y="747" class="subtitle">Bronze tables are pre-existing · Bundle deploy does not seed data · DEV / TEST / PROD share one workspace</text>
+</svg>
