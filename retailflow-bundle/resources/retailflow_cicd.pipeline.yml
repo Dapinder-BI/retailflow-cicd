@@ -1,0 +1,18 @@
+resources:
+  pipelines:
+    retailflow_cicd:
+      name: retailflow-cicd
+      configuration:
+        "source_customers_table": "${var.catalog_name}.bronze.dev_customers"
+        "source_orders_table": "${var.catalog_name}.bronze.dev_orders"
+        "target_catalog": "${var.catalog_name}"
+      libraries:
+        - glob:
+            include: ../src/retailflow_cicd/transformations/**
+      catalog: ${var.catalog_name}
+      channel: CURRENT
+      continuous: false
+      photon: true
+      root_path: ../src/retailflow_cicd
+      schema: silver
+      serverless: true

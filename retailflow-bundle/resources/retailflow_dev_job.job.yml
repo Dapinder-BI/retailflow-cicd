@@ -1,0 +1,24 @@
+resources:
+  jobs:
+    retailflow_dev_job:
+      name: retailflow-dev-job
+      tasks:
+        - task_key: run_retailflow_pipeline
+          disabled: false
+          email_notifications: {}
+          pipeline_task:
+              pipeline_id: ${resources.pipelines.retailflow_cicd.id}
+          run_if: ALL_SUCCESS
+          timeout_seconds: 0
+      email_notifications:
+        no_alert_for_skipped_runs: false
+      max_concurrent_runs: 1
+      performance_target: PERFORMANCE_OPTIMIZED
+      queue:
+        enabled: true
+      schedule:
+        pause_status: PAUSED
+        quartz_cron_expression: 15 0 7 * * ?
+        timezone_id: America/Toronto
+      timeout_seconds: 0
+      webhook_notifications: {}
