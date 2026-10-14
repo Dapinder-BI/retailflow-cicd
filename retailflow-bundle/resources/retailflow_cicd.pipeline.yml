@@ -2,9 +2,11 @@ resources:
   pipelines:
     retailflow_cicd:
       name: retailflow-cicd-${bundle.target}
+      run_as:
+        user_name: dapinders76@gmail.com
       configuration:
-        "source_customers_table": "${var.catalog_name}.bronze.dev_customers"
-        "source_orders_table": "${var.catalog_name}.bronze.dev_orders"
+        "source_customers_table": "${var.catalog_name}.bronze.${var.customers_table}"
+        "source_orders_table": "${var.catalog_name}.bronze.${var.orders_table}"
         "target_catalog": "${var.catalog_name}"
       libraries:
         - glob:
