@@ -1,7 +1,7 @@
 resources:
   pipelines:
     retailflow_cicd:
-      name: retailflow-cicd
+      name: retailflow-cicd-${bundle.target}
       configuration:
         "source_customers_table": "${var.catalog_name}.bronze.dev_customers"
         "source_orders_table": "${var.catalog_name}.bronze.dev_orders"
