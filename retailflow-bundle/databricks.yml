@@ -11,6 +11,12 @@ variables:
     description: "Unity Catalog for the deployment environment"
     default: retailflow_dev
 
+  customers_table:
+    default: dev_customers
+
+  orders_table:
+    default: dev_orders
+
 targets:
   # The 'dev' target, for development purposes. This target is the default.
   dev:
@@ -19,19 +25,23 @@ targets:
     workspace:
       host: https://dbc-49ac2e6f-10e2.cloud.databricks.com
 
-  test:
+    test:
     mode: production
     variables:
       catalog_name: retailflow_test
+      customers_table: test_customers
+      orders_table: test_orders
     workspace:
       host: https://dbc-49ac2e6f-10e2.cloud.databricks.com
       root_path: /Users/dapinders76@gmail.com/.bundle/${bundle.name}/${bundle.target}
 
   # The 'prod' target, used for production deployment.
   prod:
-    mode: production
-    variables:
-      catalog_name: retailflow_prod
+  mode: production
+  variables:
+    catalog_name: retailflow_prod
+    customers_table: prod_customers
+    orders_table: prod_orders
     workspace:
       host: https://dbc-49ac2e6f-10e2.cloud.databricks.com
       # We always use /Users/dapinders76@gmail.com for all resources to make sure we only have a single copy.
