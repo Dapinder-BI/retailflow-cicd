@@ -1,0 +1,23 @@
+name: RetailFlow CI
+
+on:
+  push:
+    branches:
+      - feature/retailflow-bundles
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  ci:
+    name: Validate RetailFlow
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Confirm checkout
+        run: |
+          echo "RetailFlow CI started"
+          ls -la

@@ -1,0 +1,42 @@
+# Declarative Automation Bundle configuration, more info here: https://docs.databricks.com/en/dev-tools/bundles/settings.html
+bundle:
+  name: "retailflow-bundle"
+
+include:
+  - resources/*.yml
+  - resources/*/*.yml
+  
+variables:
+  catalog_name:
+    description: "Unity Catalog for the deployment environment"
+    default: retailflow_dev
+
+targets:
+  # The 'dev' target, for development purposes. This target is the default.
+  dev:
+    mode: development
+    default: true
+    workspace:
+      host: https://dbc-49ac2e6f-10e2.cloud.databricks.com
+
+  test:
+    mode: production
+    variables:
+      catalog_name: retailflow_test
+    workspace:
+      host: https://dbc-49ac2e6f-10e2.cloud.databricks.com
+      root_path: /Users/dapinders76@gmail.com/.bundle/${bundle.name}/${bundle.target}
+
+  # The 'prod' target, used for production deployment.
+  prod:
+    mode: production
+    variables:
+      catalog_name: retailflow_prod
+    workspace:
+      host: https://dbc-49ac2e6f-10e2.cloud.databricks.com
+      # We always use /Users/dapinders76@gmail.com for all resources to make sure we only have a single copy.
+      root_path: /Users/dapinders76@gmail.com/.bundle/${bundle.name}/${bundle.target}
+    run_as:
+      # This runs as dapinders76@gmail.com in production. We could also use a service principal here,
+      # see https://docs.databricks.com/dev-tools/bundles/permissions.html.
+      user_name: dapinders76@gmail.com
