@@ -25,7 +25,7 @@ targets:
     workspace:
       host: https://dbc-49ac2e6f-10e2.cloud.databricks.com
 
-    test:
+  test:
     mode: production
     variables:
       catalog_name: retailflow_test
@@ -37,11 +37,11 @@ targets:
 
   # The 'prod' target, used for production deployment.
   prod:
-  mode: production
-  variables:
-    catalog_name: retailflow_prod
-    customers_table: prod_customers
-    orders_table: prod_orders
+    mode: production
+    variables:
+      catalog_name: retailflow_prod
+      customers_table: prod_customers
+      orders_table: prod_orders
     workspace:
       host: https://dbc-49ac2e6f-10e2.cloud.databricks.com
       # We always use /Users/dapinders76@gmail.com for all resources to make sure we only have a single copy.
